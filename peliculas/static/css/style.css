@@ -1,0 +1,110 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300);
+
+
+body {
+    background-color: rgba(22, 11, 0, 0.18);
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.lista_pelis {
+    margin: 0 auto;
+}
+
+.btn-block:hover {
+    background-color: #e38e15;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #E38E15;
+}
+
+
+
+.titulo2 {
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    height: 200px;
+    width: 135px;
+    opacity: 0;
+}
+
+.titulo2:hover {
+    display: inline-block;
+    position: absolute;
+    text-align: center;
+    padding-top: 45px;
+    z-index: 100;
+    font-size-adjust: 1;
+    color: rgb(255, 255, 255);
+    height: 200px;
+    width: 140px;
+    opacity: 1;
+    background-color: rgba(228, 172, 9, 0.92);
+    border: solid 3px rgba(232, 133, 0, 1);
+}
+
+
+.botonMenu{
+    color: white;
+    text-align: center;
+    width: 100%;
+    display: block;
+    padding: 0.7em;
+    text-transform: uppercase;
+    font-size-adjust: 0.5;
+}
+
+
+.botonMenu:hover{
+    background-color: #e38e15;
+    color: white;
+}
+
+
+.botonMas {
+    padding: 50px 22px;
+    alignment: center;
+    height: 200px;
+    width: 140px;
+    margin-top: 25px;
+}
+
+.botonMas:hover {
+    opacity: 0.9;
+    padding: 0;
+
+}
+
+.titulocaratula {
+    width: 140px;
+    height: 30px;
+    margin-left: 0px;
+    text-decoration: none;
+}
+
+
+
+
+
+@media (min-width:330px) and (max-width: 500px) {
+
+    .col-xs-4 {
+        width:50%;
+    }
+
+
+}
+
+@media (max-width: 330px) {
+
+    .col-xs-4 {
+        width: 100%;
+    }
+
+}
+
+

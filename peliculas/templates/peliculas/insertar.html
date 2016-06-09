@@ -1,0 +1,82 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="page-header col-lg-12 jumbotron" style="margin-top:0px; text-align: center; height: 50px; font-family: Elephant;">
+            <h2 style="margin-top: -20px">PELICULA NUEVA</h2>
+        </div>
+        <div class="col-md-12 col-sm-offset-0">
+            <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="col-md-4 col-lg-offset-2">
+
+                    <label>Titulo:</label>
+                    {{ form.titulo }}
+                    <br>
+                    <label>Actores: </label>
+                    {{ form.actores }}
+                    <a class="btn-link col-lg-offset-3 col-lg-6" style="text-align: center"
+                       href='{% url "insertaractor" %}'
+                       onclick="window.open(this.href, this.target, 'width=500,height=500,scrollbars=yes'); return false">Agregar
+                        Actor</a>
+                    <br>
+                    <br>
+                    <label>Director:</label>
+                    {{ form.director }}
+                    <a class="btn-link col-lg-offset-3 col-lg-6" style="text-align: center;"
+                       href='{% url "insertardirector" %}'
+                       onclick="window.open(this.href, this.target, 'width=500,height=500,scrollbars=yes'); return false;">Agregar
+                        Director</a>
+                    <br>
+                    <br>
+                    <label>Productora:</label>
+                    {{ form.productora }}
+                    <a class="btn-link col-lg-offset-3 col-lg-6" style="text-align: center"
+                       href='{% url "insertarproductora" %}'
+                       onclick="window.open(this.href, this.target, 'width=500,height=500,scrollbars=yes'); return false;">Agregar
+                        Productora</a>
+                    <br>
+                    <br>
+                    <label>Pais:</label>
+                    {{ form.pais }}
+                    <a class="btn-link col-lg-offset-3 col-lg-6" style="text-align: center"
+                       href='{% url "insertarpais" %}'
+                       onclick="window.open(this.href, this.target, 'width=500,height=500,scrollbars=yes'); return false;">Agregar
+                        Pais</a>
+                    <br>
+                    <br>
+                </div>
+
+                <div class="col-md-4 col-lg-offset-0">
+
+                    <label>Año:</label>
+                    {{ form.anio }}
+                    <br>
+
+                    <label>Genero:</label>
+                    {{ form.genero }}
+                    <a class="btn-link col-lg-offset-3 col-lg-6" style="text-align: center"
+                       href='{% url "insertargenero" %}'
+                       onclick="window.open(this.href, this.target, 'width=500,height=500,scrollbars=yes'); return false;">Agregar
+                        Genero</a>
+                    <br>
+                    <br>
+                    <label>Sinopsis:</label>
+                    {{ form.sinopsis }}
+                    <br>
+                    <label>Caratula:</label>
+                    {{ form.caratula }}
+                    <br>
+                    <br>
+                </div>
+
+
+                <button type="submit" class="btn btn-warning col-lg-offset-2 col-lg-3" style="margin-bottom: 30px; margin-left: 38%;">
+                    Insertar
+                </button>
+
+            </form>
+        </div>
+    </div>
+{% endblock %}

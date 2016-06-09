@@ -1,0 +1,25 @@
+{% extends 'plantilla.html' %}
+
+{% block title %}Gracias por registrarte{% endblock title %}
+
+{% block content %}
+
+
+    <div class="col-md-12" style="padding: 0; margin: 0">
+
+
+
+
+        <div class="row" style="text-align: center; margin: 120px 0;" >
+            <h2>{{ username }} Gracias por registrarte!</h2>
+            <h4>Para acceder a la web logueate <a href="{% url 'accounts.login' %}">aquí</a></h4>
+        </div>
+
+    </div>
+
+
+
+
+
+
+{% endblock %}

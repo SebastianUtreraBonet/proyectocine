@@ -1,0 +1,20 @@
+{% extends 'plantilla.html' %}
+
+{% block title %}Registro de usuario{% endblock title %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 col-sm-offset-3 separar">
+            <div class="page-header">
+                <h2>Registro Usuario</h2>
+            </div>
+
+            <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <br>
+                <button type="submit" class="btn btn-warning col-lg-offset-3 col-lg-6">Registrar</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

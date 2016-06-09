@@ -1,0 +1,56 @@
+{% extends 'plantilla.html' %}
+{% load staticfiles %}
+<script>
+    setTimeout(window.location('plantilla.html').load(), 2000)
+</script>
+{% block content %}
+
+    <div class="col-md-12" style="padding: 0; margin: 0">
+
+        <div class="row" style="background-color: rgba(31, 50, 63, 0.79);">
+
+            <ul class="nav-justified" style="margin: 0; padding: 0; list-style: none">
+                <li class=""><a
+                        href="{% url 'peliculas.alfabetico' %}" class="botonMenu"> Peliculas A-Z</a></li>
+                <li class=""><a
+                        href="{% url 'peliculas.recientes' %}" class="botonMenu">Peliculas Recintes</a></li>
+                <li class=""><a
+                        href="{% url 'peliculas.actores' %}" class="botonMenu">Ver Actores</a></li>
+                <li class=""><a
+                        href="{% url 'peliculas.directores' %}" class="botonMenu">Ver Directores</a></li>
+            </ul>
+
+        </div>
+
+
+        <div class="row">
+            {% for p in peli %}
+                <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2"
+                     style="margin: 0; padding: 15px 0; text-align: center">
+                    <a href="/ficha/{{ p.titulo }}">
+                        <div class="titulo2"><p><span class="glyphicon glyphicon-film" stile="top:-10px"></span>
+                        </p>{{ p.titulo }}</div>
+                        <img src="media/{{ p.caratula }}" style="height: 200px; width: 140px;" alt="{{ p.titulo }}"
+                             title="{{ p.titulo }}">
+                    </a>
+                </div>
+            {% endfor %}
+            {% if  user.username  == "admin" %}
+                <div class="col-xs-4 col-sm-3 col-md-2 col-lg-2"
+                     style="margin: 100px 0 30px; padding:0; text-align: center;">
+                    <a href="{% url 'insertarpelicula' %}" class="glyphicon glyphicon-plus-sign"
+                       style="color: #e38e15;font-size-adjust: 3;"></a>
+                </div>
+            {% endif %}
+        </div>
+
+
+    </div>
+
+
+
+
+
+{% endblock content %}
+
+

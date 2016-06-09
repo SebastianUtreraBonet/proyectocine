@@ -1,0 +1,53 @@
+{% extends 'plantilla.html' %}
+{% block content %}
+     <div class="col-md-12" style="padding: 0; margin: 0">
+
+        <div class="row" style="background-color: rgba(31, 50, 63, 0.79);">
+
+            <ul class="nav-justified" style="margin: 0; padding: 0; list-style: none">
+                <li class=""><a
+                        href="{% url 'peliculas.alfabetico' %}" class="botonMenu"> Películas A-Z</a></li>
+                <li class=""><a
+                        href="{% url 'peliculas.recientes' %}" class="botonMenu">Películas Recintes</a></li>
+                <li class=""><a
+                        href="{% url 'peliculas.actores' %}" class="botonMenu">Ver Actores</a></li>
+                <li class=""><a
+                        href="{% url 'peliculas.directores' %}" class="botonMenu">Ver Directores</a></li>
+            </ul>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12" style="text-align:center; display:block">
+                {% for f in ficha %}
+                    <h1>{{ f.titulo }} <img src="../media/{{ f.pais.bandera }}" style="margin: 40px" height="30px" width="45px"/></h1>
+                    <div class="container-fluid col-lg-5" style="text-align:center; display:block">
+                        <a href="../media/{{ f.caratula }}"><img src="../media/{{ f.caratula }}" style="height: 500px; width: 326px; margin-bottom: 70px" ></a>
+                    </div>
+                    <div class="container-fluid" style="text-align:justify; display:block">
+                        <b>Genero: </b> {% for g in gen %}
+                        {% ifnotequal forloop.counter gen.count %}
+                            <a href="/genero/{{ g.genero }}">{{ g.genero }}</a>,
+                        {% endifnotequal %}
+                        {% ifequal forloop.counter gen.count %}
+                            <a href="/genero/{{ g.genero }}">{{ g.genero }}</a>
+                        {% endifequal %}
+                    {% endfor %}<br>
+                        <b>País: </b> {{ f.pais }}<br>
+                        <b>Director: </b> <a href="/director/{{ f.director }}">{{ f.director }}</a><br>
+                        <b>Reparto: </b> {% for a in act %}
+                        {% ifnotequal forloop.counter act.count %}
+                            <a href="/actor/{{ a.nombre }}">{{ a.nombre }}</a>,
+                        {% endifnotequal %}
+                        {% ifequal forloop.counter act.count %}
+                            <a href="/actor/{{ a.nombre }}">{{ a.nombre }}</a>
+                        {% endifequal %}
+                    {% endfor %}<br><br>
+                        <b>Sinopsis: </b>{{ f.sinopsis}}<br><br>
+                        <b>Distribuidora: </b> <a href="/productora/{{ f.productora.nombre }}">{{ f.productora.nombre }}</a>
+                        <div style="margin-top: 40px;"><a href="/productora/{{ f.productora.nombre }}"><img src="../media/{{ f.productora.imagen }}" style="width: 160px; height: auto"></a></div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+    <div class="lista_pelis">
+        <div class="row" style="margin-left: 17px">
+            <h2>{{ gen.first }}</h2>
+        </div>
+        <div class="row">
+        </div>
+        {% for p in mostrar %}
+            <div class="col-lg-2 col-md-3 col-sm-6 col-xs-12">
+                <a href="/ficha/{{ p.titulo }}">
+                    <img src="../media/{{ p.caratula }}" class="caratulas"
+                         alt="{{ p.titulo }}" title="{{ p.titulo }}">
+                    <h5 class="titulocaratula">{{ p.titulo }}</h5>
+                </a>
+
+            </div>
+        {% endfor %}
+
+    </div>
+
+{% endblock content %}
